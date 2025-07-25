@@ -12,7 +12,7 @@ function App() {
           <Cart />
         </div>
       </section>
-      {/* <CartConfirmation /> */}
+      <CartConfirmation /> 
     </main>
   )
 }

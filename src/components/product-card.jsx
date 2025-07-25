@@ -1,22 +1,62 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useCartStore } from '../store/cart.store';
 
-export const ProductCard = ({image, name, category, price}) => {
-  const [quantity, setQuantity] = useState(0);
+export const ProductCard = ({ image, name, category, price }) => {
+  // const [quantity, setQuantity] = useState(0);
+
+  const { addItemToCart, updateItemInCart, deleteItemfromCart, cart } =
+    useCartStore();
+
+    let quantity = 0
+    const itemsInCart = cart.filter(item => item.name === name)
+
+    if(itemsInCart.length > 0){
+      quantity = itemsInCart[0].quantity
+      console.log(quantity)
+    }
 
   const addOne = () => {
-    setQuantity(quantity + 1);
+    const newQuantity = quantity + 1;
+    // setQuantity(newQuantity);
+
+    if (newQuantity > 1) {
+      updateItemInCart({
+        image,
+        name,
+        price,
+        quantity: newQuantity,
+      });
+    } else {
+      addItemToCart({
+        image,
+        name,
+        price,
+        quantity: newQuantity,
+      });
+    }
   };
 
   const subtractOne = () => {
-    setQuantity(quantity - 1);
+    const newQuantity = quantity - 1;
+    // setQuantity(newQuantity);
+
+    if (newQuantity === 0) {
+      deleteItemfromCart(name);
+    } else {
+      updateItemInCart({
+        image,
+        name,
+        price,
+        quantity: newQuantity,
+      });
+    }
   };
 
   return (
     <div className='relative'>
-
       <picture>
-        <source media="(min-width: 1440px)" srcSet={image.desktop} />
-        <source media="(min-width: 768px)" srcSet={image.tablet} />
+        <source media='(min-width: 1440px)' srcSet={image.desktop} />
+        <source media='(min-width: 768px)' srcSet={image.tablet} />
         <img
           className='rounded-lg mb-[38px]'
           src={image.mobile}
@@ -55,7 +95,7 @@ export const ProductCard = ({image, name, category, price}) => {
 
       <p className='text-Rose-500 text-sm'>{category}</p>
       <h2 className='font-bold'>{name}</h2>
-      <p className='text-Red font-semibold'>${price}</p>
+      <p className='text-Red font-semibold'>${price.toFixed(2)}</p>
     </div>
   );
 };
