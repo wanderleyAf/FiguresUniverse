@@ -11,7 +11,7 @@ export const CardsContainer = () => {
           <Link
             key={item.id}
             to={`/image/${item.id}`}  // Usamos `to` de React Router para navegar internamente
-            target="_blank"  // Esto abrirá la ruta en una nueva pestaña
+          
             rel="noreferrer"            
             className="cursor-pointer"
           >

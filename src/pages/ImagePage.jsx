@@ -52,26 +52,15 @@ export const ImagePage = () => {
 
           {/* Botones */}
           <div className="flex flex-wrap gap-4 justify-center" >
+            <button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md">
+              Consultar
+            </button>
             <a
-              href="https://wa.me/999999999"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/"
+              className="border border-gray-500 hover:border-white px-6 py-3 rounded-xl font-semibold"
             >
-          <button className="bg-gradient-to-r from-yellow-800 via-yellow-500 to-yellow-600 
-            hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 
-            text-white font-extrabold px-6 py-3 rounded-xl shadow-lg tracking-wide 
-            cursor-pointer transition-all duration-300">
-            ✨ Descubrir la pieza ✨
-          </button>
-          </a>
-          <a
-            href="/"
-            className="border-2 border-yellow-500 text-yellow-500 hover:bg-red-500 
-            hover:text-white px-6 py-3 rounded-xl font-semibold cursor-pointer 
-            transition-all duration-300"
-          >
-            Volver a Galería
-          </a>
+              Volver a Galería
+            </a>
           </div>
         </div>
       </div>
