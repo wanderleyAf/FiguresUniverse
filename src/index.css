@@ -1,27 +1,51 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: RedHat;
-  font-style: normal;
-  font-weight: 400 600 700;
-  font-display: swap;
-  src: url("/assets/fonts/RedHatText-VariableFont_wght.ttf") format("woff2");
+/* 🔹 Ajusta tamaño de flechas */
+.image-gallery-icon {
+  width: 35px !important;
+  height: 35px !important;
+  display: flex;
+  align-items: center;
 }
 
-@theme {
-  --color-Red: hsl(14, 86%, 42%);
-  --color-Green: hsl(159, 69%, 38%);
-  --color-Rose-50: hsl(20, 50%, 98%);
-  --color-Rose-100: hsl(13, 31%, 94%);
-  --color-Rose-300: hsl(14, 25%, 72%);
-  --color-Rose-400: hsl(7, 20%, 60%);
-  --color-Rose-500: hsl(12, 20%, 44%);
-  --color-Rose-900: hsl(14, 65%, 9%);
+/* 🔹 Cambiar cursor en la imagen principal */
+.image-gallery-slide img {
 
-  --breakpoint-desktop: 1440px;
+  cursor: pointer;
 }
 
-body{
-  font-family: RedHat;
-  background-color: var(--color-Rose-100);
+/* 🔹 Miniaturas del carrusel */
+.custom-gallery .image-gallery-thumbnail img {
+  width: 80px;       /* ancho fijo de las miniaturas */
+  height: 80px;      /* alto fijo de las miniaturas */
+  object-fit: cover; /* recorta la imagen manteniendo proporción */
+  border-radius: 3px;
+   display: flex;
+  cursor: pointer;  
+  
+}
+
+/* 🔹 Quitar borde/outline azul de miniaturas al hacer click o foco */
+/* Quitar cuadro azul de todas las miniaturas */
+.custom-gallery .image-gallery-thumbnail {
+  border: none !important;
+}
+
+
+/* 🔹 Todas las miniaturas oscuras por defecto */
+.custom-gallery .image-gallery-thumbnail img {
+  filter: brightness(0.5);
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+/* 🔹 La miniatura seleccionada vuelve a estar clara */
+.custom-gallery .image-gallery-thumbnail.active img {
+  filter: brightness(1);
+  transform: scale(1.05); /* efecto de resaltar un poco */
+  border: 2px solid #007592; /* opcional: borde blanco */
+}
+/* 🔹 Espaciado entre la imagen principal y las miniaturas */
+.custom-gallery .image-gallery-thumbnails-wrapper {
+  margin-top: 20px; /* ajusta a tu gusto */
 }
