@@ -5,7 +5,7 @@ export const FloatingButtons = () => {
     <>
       {/* Botón de WhatsApp */}
       <a
-        href="https://wa.me/51999999999"
+        href="https://wa.me/51991283718?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 flex items-center justify-start 
@@ -23,7 +23,7 @@ export const FloatingButtons = () => {
 
       {/* Botón de Instagram */}
       <a
-        href="https://www.instagram.com/tuusuario"
+        href="https://www.instagram.com/figures.universe/"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-24 right-6 flex items-center justify-start 
